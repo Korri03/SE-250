@@ -1,15 +1,17 @@
 <?php
-// Load the database connection ($conn).
+// pull in the database connection so I can use $conn
 require "db.php";
 
-// Read the id from the link (mark_returned.php?id=3) and force it to a whole number.
+// get the id from the link (mark_returned.php?id=3) and make it a whole number
 $id = (int)$_GET["id"];
 
-// Update only the row with this id. The WHERE keeps other rows unchanged.
+// set returned to 1 for just this loan; WHERE stops it from changing every row
 $stmt = mysqli_prepare($conn, "UPDATE loans SET returned = 1 WHERE id = ?");
+
+// "i" = the value is an integer
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 
-// Go back to the list.
+// back to the list page
 header("Location: list.php");
 exit;
