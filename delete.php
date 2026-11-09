@@ -1,15 +1,15 @@
 <?php
-// Load the database connection ($conn).
+// pull in the database connection so I can use $conn
 require "db.php";
 
-// Read the id from the link and force it to a whole number.
+// get the id from the link and make it a whole number
 $id = (int)$_GET["id"];
 
-// Delete only the row with this id. Without WHERE this would delete every row.
+// delete just this loan; without WHERE it would delete every row
 $stmt = mysqli_prepare($conn, "DELETE FROM loans WHERE id = ?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 
-// Go back to the list.
+// back to the list page
 header("Location: list.php");
 exit;
