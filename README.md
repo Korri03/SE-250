@@ -19,7 +19,7 @@ A small CRUD web app (HTML, PHP, MySQL) for tracking costume loans after Hallowe
 Overdue loans in red, borrower search, and "only items still out" filter.
 
 ## AI use
-Claude: helped with skimming extra unrequired code lines, made it more tidy.
+Claude: helped with skimming extra unrequired code lines, made it more tidy. Helped with commits too.
 
 ## Screenshots
 See the `screenshots` folder.
